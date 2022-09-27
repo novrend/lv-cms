@@ -12,6 +12,7 @@ import { useTailwind } from "tailwind-rn";
 import { Ionicons } from "@expo/vector-icons";
 import Navbar from "../components/Navbar";
 import Slick from "react-native-slick";
+import Footer from "../components/Footer";
 
 export default function ProductDetail({ route, navigation }) {
   const tailwind = useTailwind();
@@ -126,7 +127,6 @@ export default function ProductDetail({ route, navigation }) {
             padding: 20,
             paddingLeft: 30,
             backgroundColor: "#FFFF",
-            height: "100%",
           }}
         >
           <Text
@@ -183,6 +183,7 @@ export default function ProductDetail({ route, navigation }) {
             Created by: {product?.User?.username}
           </Text>
         </View>
+        <Footer />
       </ScrollView>
     </Fragment>
   );

@@ -11,7 +11,7 @@ export default function Home({ navigation }) {
       <Fragment>
         <Text
           style={[tailwind("font-light"), { fontSize: 20, marginBottom: 15 }]}
-          onPress={() => navigation.navigate("ProductList", { category: item.name })}
+          onPress={() => item.name === "Home" ? navigation.navigate("Home") : navigation.navigate("ProductList", { category: item.name })}
         >
           {item.name}
         </Text>

@@ -2,8 +2,9 @@ import { Fragment } from "react";
 import { Image, ScrollView, View, Text, TouchableOpacity } from "react-native";
 import Navbar from "../components/Navbar";
 import { useTailwind } from "tailwind-rn";
+import Footer from "../components/Footer";
 
-export default function Home({ route, navigation }) {
+export default function Home({ navigation }) {
   const tailwind = useTailwind();
   const style = {
     text: {
@@ -45,7 +46,12 @@ export default function Home({ route, navigation }) {
           <Text style={[tailwind("font-bold text-white text-4xl"), style.text]}>
             FRESH KICKS
           </Text>
-          <TouchableOpacity style={style.button}>
+          <TouchableOpacity
+            style={style.button}
+            onPress={() =>
+              navigation.navigate("ProductList", { category: "Shoes" })
+            }
+          >
             <Text
               style={[tailwind("text-xl text-white"), { alignSelf: "center" }]}
             >
@@ -97,11 +103,12 @@ export default function Home({ route, navigation }) {
         <Text
           style={[
             tailwind("text-lg"),
-            { marginLeft: 25, marginTop: 5, marginRight: 25 },
+            { marginLeft: 25, marginTop: 5, marginRight: 25, marginBottom: 30 },
           ]}
         >
           Louis Vuitton Client Advisors are always here to help.
         </Text>
+        <Footer />
       </ScrollView>
     </Fragment>
   );
