@@ -4,7 +4,8 @@ import utilities from "./tailwind.json";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Home from "./views/Home";
-import Product from "./views/Product";
+import ProductList from "./views/ProductList";
+import ProductDetail from "./views/ProductDetail";
 import Category from "./views/Category";
 
 export default function App() {
@@ -28,6 +29,14 @@ export default function App() {
               }}
             />
             <Stack.Screen
+              name="ProductList"
+              component={ProductList}
+              options={{
+                cardStyleInterpolator: forFade,
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
               name="Category"
               component={Category}
               options={{
@@ -36,8 +45,8 @@ export default function App() {
               }}
             />
             <Stack.Screen
-              name="Product"
-              component={Product}
+              name="ProductDetail"
+              component={ProductDetail}
               options={{
                 cardStyleInterpolator: forFade,
                 headerShown: false,

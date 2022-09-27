@@ -13,21 +13,26 @@ export default function Navbar({ buttonType, navigation }) {
           backgroundColor: "#FFFF",
         }}
       >
-        {buttonType && <FontAwesome5
-          backgroundColor="transparent"
-          name="times"
-          size={24}
-          color="black"
-          onPress={() => navigation.goBack()}
-        />}
-        {!buttonType && <FontAwesome
-          backgroundColor="transparent"
-          name="bars"
-          size={24}
-          color="black"
-          onPress={() => navigation.navigate("Category")}
-        />}
+        {buttonType && (
+          <FontAwesome5
+            backgroundColor="transparent"
+            name="times"
+            size={24}
+            color="black"
+            onPress={() => navigation.goBack()}
+          />
+        )}
+        {!buttonType && (
+          <FontAwesome
+            backgroundColor="transparent"
+            name="bars"
+            size={24}
+            color="black"
+            onPress={() => navigation.navigate("Category")}
+          />
+        )}
         <Image
+          onPress={() => navigation.navigate("Home")}
           source={require("../assets/lv.png")}
           style={{
             alignSelf: "center",

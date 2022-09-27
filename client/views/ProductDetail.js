@@ -1,11 +1,31 @@
-import { Fragment } from "react";
-import { TouchableOpacity, Image, Text, View, ScrollView } from "react-native";
+import { BASE_URL } from "../config";
+import { Fragment, useEffect, useState } from "react";
+import {
+  TouchableOpacity,
+  Image,
+  Text,
+  View,
+  ScrollView,
+  FlatList,
+} from "react-native";
 import { useTailwind } from "tailwind-rn";
 import { Ionicons } from "@expo/vector-icons";
 import Navbar from "../components/Navbar";
 import Slick from "react-native-slick";
-export default function Product({ navigation }) {
+
+export default function ProductDetail({ route, navigation }) {
   const tailwind = useTailwind();
+  const [product, setProduct] = useState({});
+  useEffect(() => {
+    fetch(`${BASE_URL}/product/${route.params.id}`)
+      .then((resp) => {
+        if (resp?.error) throw resp.json();
+        return resp.json();
+      })
+      .then((resp) => {
+        setProduct(resp);
+      });
+  }, []);
   const style = {
     dot: {
       backgroundColor: "#949494",
@@ -63,6 +83,7 @@ export default function Product({ navigation }) {
   return (
     <Fragment>
       <Navbar buttonType={false} navigation={navigation} />
+      <FlatList></FlatList>
       <ScrollView style={{ position: "relative" }}>
         <Slick
           style={{ height: 400 }}
@@ -75,19 +96,21 @@ export default function Product({ navigation }) {
         >
           <View>
             <Image
-              source={require("../assets/product.webp")}
+              source={{
+                uri: product.mainImg,
+              }}
               style={{ width: "100%", height: 400 }}
             />
           </View>
           <View>
             <Image
-              source={require("../assets/product2.webp")}
+              source={{ uri: product?.Images?.[0]?.imgUrl }}
               style={{ width: "100%", height: 400 }}
             />
           </View>
           <View>
             <Image
-              source={require("../assets/product3.png")}
+              source={{ uri: product?.Images?.[1]?.imgUrl }}
               style={{ width: "100%", height: 400 }}
             />
           </View>
@@ -109,7 +132,7 @@ export default function Product({ navigation }) {
           <Text
             style={[tailwind("font-light"), { fontSize: 20, marginBottom: 15 }]}
           >
-            Bags
+            {product?.Category?.name}
           </Text>
           <Text
             style={[
@@ -117,7 +140,7 @@ export default function Product({ navigation }) {
               { fontSize: 30, marginBottom: 15 },
             ]}
           >
-            AVENUE SLING BAG
+            {product.name}
           </Text>
           <Text
             style={[
@@ -125,7 +148,10 @@ export default function Product({ navigation }) {
               { fontSize: 20, marginBottom: 15 },
             ]}
           >
-            $1,930.00
+            {new Intl.NumberFormat("en-US", {
+              style: "currency",
+              currency: "USD",
+            }).format(product.price)}
           </Text>
           <TouchableOpacity
             style={{
@@ -149,16 +175,12 @@ export default function Product({ navigation }) {
               { fontSize: 20, marginBottom: 15, marginTop: 15 },
             ]}
           >
-            The Avenue Sling Bag in Damier Graphite canvas fits urban lifestyles
-            perfectly: compact and sporty, with a cool and casual attitude. Its
-            “smart” strap adjusts for left- or right-side carry. The
-            body-friendly shape and the two zipped compartments keep valuables
-            close and secure.
+            {product.description}
           </Text>
           <Text
             style={[tailwind("font-light"), { fontSize: 20, marginBottom: 15 }]}
           >
-            Created by: admin
+            Created by: {product?.User?.username}
           </Text>
         </View>
       </ScrollView>
