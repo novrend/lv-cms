@@ -10,6 +10,20 @@ export default function Home({ navigation }) {
       <View style={{ padding: 25, backgroundColor: "#FFFF", height: "100%" }}>
         <Text
           style={[tailwind("font-light"), { fontSize: 20, marginBottom: 15 }]}
+          onPress={() => navigation.navigate("Home")}
+        >
+          HOME
+        </Text>
+        <View
+          style={{
+            borderBottomColor: "#9ca3af",
+            borderBottomWidth: 1,
+            marginBottom: 15,
+          }}
+        />
+        <Text
+          style={[tailwind("font-light"), { fontSize: 20, marginBottom: 15 }]}
+          onPress={() => navigation.navigate("Home")}
         >
           WOMEN
         </Text>
@@ -17,11 +31,12 @@ export default function Home({ navigation }) {
           style={{
             borderBottomColor: "#9ca3af",
             borderBottomWidth: 1,
-            marginBottom: 15
+            marginBottom: 15,
           }}
         />
         <Text
           style={[tailwind("font-light"), { fontSize: 20, marginBottom: 15 }]}
+          onPress={() => navigation.navigate("Home")}
         >
           MEN
         </Text>
@@ -29,11 +44,12 @@ export default function Home({ navigation }) {
           style={{
             borderBottomColor: "#9ca3af",
             borderBottomWidth: 1,
-            marginBottom: 15
+            marginBottom: 15,
           }}
         />
         <Text
           style={[tailwind("font-light"), { fontSize: 20, marginBottom: 15 }]}
+          onPress={() => navigation.navigate("Home")}
         >
           SHOES
         </Text>
@@ -41,11 +57,12 @@ export default function Home({ navigation }) {
           style={{
             borderBottomColor: "#9ca3af",
             borderBottomWidth: 1,
-            marginBottom: 15
+            marginBottom: 15,
           }}
         />
         <Text
           style={[tailwind("font-light"), { fontSize: 20, marginBottom: 15 }]}
+          onPress={() => navigation.navigate("Home")}
         >
           GIFTS
         </Text>
@@ -53,11 +70,12 @@ export default function Home({ navigation }) {
           style={{
             borderBottomColor: "#9ca3af",
             borderBottomWidth: 1,
-            marginBottom: 15
+            marginBottom: 15,
           }}
         />
         <Text
           style={[tailwind("font-light"), { fontSize: 20, marginBottom: 15 }]}
+          onPress={() => navigation.navigate("Home")}
         >
           FRAGRANCES
         </Text>
@@ -65,7 +83,7 @@ export default function Home({ navigation }) {
           style={{
             borderBottomColor: "#9ca3af",
             borderBottomWidth: 1,
-            marginBottom: 15
+            marginBottom: 15,
           }}
         />
       </View>

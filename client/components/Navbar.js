@@ -18,7 +18,7 @@ export default function Navbar({ buttonType, navigation }) {
           name="times"
           size={24}
           color="black"
-          onPress={() => navigation.navigate("Home")}
+          onPress={() => navigation.goBack()}
         />}
         {!buttonType && <FontAwesome
           backgroundColor="transparent"

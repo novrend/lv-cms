@@ -5,7 +5,7 @@ export default function Home({ navigation }) {
   return (
     <>
       <Navbar buttonType={false} navigation={navigation} />
-      <Card />
+      <Card navigation={navigation} />
     </>
   );
 }

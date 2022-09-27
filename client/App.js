@@ -20,14 +20,6 @@ export default function App() {
         <NavigationContainer>
           <Stack.Navigator>
             <Stack.Screen
-              name="Product"
-              component={Product}
-              options={{
-                cardStyleInterpolator: forFade,
-                headerShown: false,
-              }}
-            />
-            <Stack.Screen
               name="Home"
               component={Home}
               options={{
@@ -41,6 +33,14 @@ export default function App() {
               options={{
                 headerShown: false,
                 cardStyleInterpolator: forFade,
+              }}
+            />
+            <Stack.Screen
+              name="Product"
+              component={Product}
+              options={{
+                cardStyleInterpolator: forFade,
+                headerShown: false,
               }}
             />
           </Stack.Navigator>
