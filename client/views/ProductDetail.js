@@ -8,14 +8,12 @@ import {
   ScrollView,
   FlatList,
 } from "react-native";
-import { useTailwind } from "tailwind-rn";
 import { Ionicons } from "@expo/vector-icons";
 import Navbar from "../components/Navbar";
 import Slick from "react-native-slick";
 import Footer from "../components/Footer";
 
 export default function ProductDetail({ route, navigation }) {
-  const tailwind = useTailwind();
   const [product, setProduct] = useState({});
   useEffect(() => {
     fetch(`${BASE_URL}/product/${route.params.id}`)
@@ -62,6 +60,7 @@ export default function ProductDetail({ route, navigation }) {
       shadowRadius: 4,
       shadowOffset: { width: 2, height: 4 },
     },
+    image: { width: "100%", height: 400 },
   };
   const CarouselButton = ({ left }) => {
     return (
@@ -100,19 +99,19 @@ export default function ProductDetail({ route, navigation }) {
               source={{
                 uri: product.mainImg,
               }}
-              style={{ width: "100%", height: 400 }}
+              style={style.image}
             />
           </View>
           <View>
             <Image
               source={{ uri: product?.Images?.[0]?.imgUrl }}
-              style={{ width: "100%", height: 400 }}
+              style={style.image}
             />
           </View>
           <View>
             <Image
               source={{ uri: product?.Images?.[1]?.imgUrl }}
-              style={{ width: "100%", height: 400 }}
+              style={style.image}
             />
           </View>
         </Slick>
@@ -129,25 +128,11 @@ export default function ProductDetail({ route, navigation }) {
             backgroundColor: "#FFFF",
           }}
         >
-          <Text
-            style={[tailwind("font-light"), { fontSize: 20, marginBottom: 15 }]}
-          >
+          <Text style={{ fontWeight: "300", fontSize: 20, marginBottom: 15 }}>
             {product?.Category?.name}
           </Text>
-          <Text
-            style={[
-              tailwind("font-normal"),
-              { fontSize: 30, marginBottom: 15 },
-            ]}
-          >
-            {product.name}
-          </Text>
-          <Text
-            style={[
-              tailwind("font-normal"),
-              { fontSize: 20, marginBottom: 15 },
-            ]}
-          >
+          <Text style={{ fontSize: 30, marginBottom: 15 }}>{product.name}</Text>
+          <Text style={{ fontSize: 20, marginBottom: 15 }}>
             {new Intl.NumberFormat("en-US", {
               style: "currency",
               currency: "USD",
@@ -161,25 +146,27 @@ export default function ProductDetail({ route, navigation }) {
             }}
           >
             <Text
-              style={[
-                tailwind("text-2xl font-extralight text-white"),
-                { alignSelf: "center" },
-              ]}
+              style={{
+                alignSelf: "center",
+                color: "white",
+                fontSize: 24,
+                fontWeight: "200",
+              }}
             >
               Place in Cart
             </Text>
           </TouchableOpacity>
           <Text
-            style={[
-              tailwind("font-light"),
-              { fontSize: 20, marginBottom: 15, marginTop: 15 },
-            ]}
+            style={{
+              fontWeight: "300",
+              fontSize: 20,
+              marginBottom: 15,
+              marginTop: 15,
+            }}
           >
             {product.description}
           </Text>
-          <Text
-            style={[tailwind("font-light"), { fontSize: 20, marginBottom: 15 }]}
-          >
+          <Text style={{ fontWeight: "300", fontSize: 20, marginBottom: 15 }}>
             Created by: {product?.User?.username}
           </Text>
         </View>

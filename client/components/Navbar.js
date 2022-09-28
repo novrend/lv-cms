@@ -1,10 +1,9 @@
-import { View, Image } from "react-native";
+import { View, Image, TouchableOpacity, SafeAreaView } from "react-native";
 import { FontAwesome, FontAwesome5, SimpleLineIcons } from "@expo/vector-icons";
-import { Fragment } from "react";
 
 export default function Navbar({ buttonType, navigation }) {
   return (
-    <Fragment>
+    <SafeAreaView style={{ backgroundColor: "#FFFF" }}>
       <View
         style={{
           flexDirection: "row",
@@ -28,18 +27,19 @@ export default function Navbar({ buttonType, navigation }) {
             name="bars"
             size={24}
             color="black"
-            onPress={() => navigation.navigate("Category")}
+            onPress={() => navigation.push("Category")}
           />
         )}
-        <Image
-          onPress={() => navigation.navigate("Home")}
-          source={require("../assets/lv.png")}
-          style={{
-            alignSelf: "center",
-            width: 151,
-            height: 16,
-          }}
-        />
+        <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+          <Image
+            source={require("../assets/lv.png")}
+            style={{
+              alignSelf: "center",
+              width: 151,
+              height: 16,
+            }}
+          />
+        </TouchableOpacity>
         <SimpleLineIcons
           style={{ alignSelf: "center" }}
           name="handbag"
@@ -53,6 +53,6 @@ export default function Navbar({ buttonType, navigation }) {
           borderBottomWidth: 1,
         }}
       />
-    </Fragment>
+    </SafeAreaView>
   );
 }

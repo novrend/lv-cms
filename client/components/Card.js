@@ -1,9 +1,7 @@
-import { Text, Image, TouchableOpacity, FlatList } from "react-native";
-import { useTailwind } from "tailwind-rn";
+import { Text, Image, TouchableOpacity, FlatList, View } from "react-native";
 import { BASE_URL } from "../config";
 import { Fragment, useEffect, useState } from "react";
 export default function Card({ category, navigation }) {
-  const tailwind = useTailwind();
   const [products, setProducts] = useState([]);
   const CardProduct = ({ item }) => {
     return (
@@ -15,21 +13,19 @@ export default function Card({ category, navigation }) {
           source={{
             uri: item.Images[0].imgUrl,
           }}
-          style={[tailwind("bg-stone-100"), { width: 180, height: 180 }]}
+          style={{ backgroundColor: "#f5f5f4", width: 180, height: 180 }}
         />
         <Text
-          style={[
-            tailwind("text-black text-base"),
-            {
-              width: 180,
-              flexDirection: "row",
-              flexWrap: "wrap",
-            },
-          ]}
+          style={{
+            width: 180,
+            flexDirection: "row",
+            flexWrap: "wrap",
+            fontSize: 16,
+          }}
         >
           {item.name}
         </Text>
-        <Text style={[tailwind("text-black text-sm font-light")]}>
+        <Text style={{ fontSize: 14, fontWeight: "300" }}>
           {new Intl.NumberFormat("en-US", {
             style: "currency",
             currency: "USD",
@@ -50,18 +46,18 @@ export default function Card({ category, navigation }) {
   }, [category]);
   return (
     <Fragment>
-      <FlatList
-        renderItem={CardProduct}
-        keyExtractor={(item) => item.id}
-        data={products}
-        numColumns={2}
-        columnWrapperStyle={{ flexWrap: "wrap" }}
-        style={{
-          backgroundColor: "#FFFF",
-          alignSelf: "center",
-          height: "100%",
-        }}
-      />
+      <View style={{ width: "100%", height: "100%", backgroundColor: "#FFFF" }}>
+        <FlatList
+          renderItem={CardProduct}
+          keyExtractor={(item) => item.id}
+          data={products}
+          numColumns={2}
+          columnWrapperStyle={{ flexWrap: "wrap" }}
+          style={{
+            alignSelf: "center",
+          }}
+        />
+      </View>
     </Fragment>
   );
 }

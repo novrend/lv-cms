@@ -1,16 +1,14 @@
 import { Fragment, useEffect, useState } from "react";
 import { FlatList, Text, View } from "react-native";
 import Navbar from "../components/Navbar";
-import { useTailwind } from "tailwind-rn";
 import { BASE_URL } from "../config";
 export default function Home({ navigation }) {
-  const tailwind = useTailwind();
   const [categories, setCategories] = useState([]);
   const NavComponents = ({ item }) => {
     return (
       <Fragment>
         <Text
-          style={[tailwind("font-light"), { fontSize: 20, marginBottom: 15 }]}
+          style={{ fontWeight: "300", fontSize: 20, marginBottom: 15 }}
           onPress={() =>
             item.name === "Home"
               ? navigation.navigate("Home")

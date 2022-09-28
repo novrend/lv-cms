@@ -1,11 +1,8 @@
 import { Text, View, Image } from "react-native";
-import { useTailwind } from "tailwind-rn";
 export default function Footer() {
-  const tailwind = useTailwind();
   return (
     <View style={{ width: "100%", backgroundColor: "#171717" }}>
       <Image
-        onPress={() => navigation.navigate("Home")}
         source={require("../assets/lv_white.png")}
         style={{
           alignSelf: "center",
@@ -23,7 +20,7 @@ export default function Footer() {
           marginLeft: 20,
         }}
       />
-      <Text style={[tailwind("text-neutral-100"), { margin: 20 }]}>
+      <Text style={{ color: "#f5f5f5", margin: 20 }}>
         © 2022 Louis Vuitton. All Rights Reserved.
       </Text>
     </View>
