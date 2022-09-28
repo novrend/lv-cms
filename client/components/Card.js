@@ -3,7 +3,7 @@ import { BASE_URL } from "../config";
 import { Fragment, useEffect, useState } from "react";
 export default function Card({ category, navigation }) {
   const [products, setProducts] = useState([]);
-  const CardProduct = ({ item }) => {
+  const CardProduct = ({ item }) => { 
     return (
       <TouchableOpacity
         style={{ margin: 10 }}
