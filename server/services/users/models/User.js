@@ -8,8 +8,9 @@ class User {
   }
   static async find() {
     try {
-      const users = await User.getCollection().find();
-      return users.toArray();
+      const users = await User.getCollection().find().toArray();
+      users.forEach((user) => delete user.password);
+      return users;
     } catch (error) {
       throw error;
     }
@@ -19,6 +20,7 @@ class User {
       const findOne = await User.getCollection().findOne({
         _id: ObjectId(id),
       });
+      delete findOne.password;
       return findOne;
     } catch (error) {
       throw error;

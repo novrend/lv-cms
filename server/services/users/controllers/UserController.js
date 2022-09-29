@@ -1,3 +1,4 @@
+const bcrypt = require('bcryptjs');
 const User = require("../models/User");
 class UserController {
   static async find(req, res) {
@@ -18,7 +19,9 @@ class UserController {
   }
   static async insertOne(req, res) {
     try {
+      req.body.password = bcrypt.hashSync(req.body.password)
       await User.insertOne(req.body);
+      delete req.body.password
       res.status(200).json(req.body);
     } catch (error) {
       res.status(500).json(error);
