@@ -13,7 +13,7 @@ class UserController {
         res.status(users.status).json(users.data);
       }
     } catch (error) {
-      res.status(500).json(error);
+      res.status(error.reponse.status).json(error.reponse.data);
     }
   }
 
@@ -28,7 +28,7 @@ class UserController {
         res.status(user.status).json(user.data);
       }
     } catch (error) {
-      res.status(500).json(error);
+      res.status(error.reponse.status).json(error.reponse.data);
     }
   }
 
@@ -38,7 +38,7 @@ class UserController {
       redis.del("users");
       res.status(user.status).json(user.data);
     } catch (error) {
-      res.status(500).json(error);
+      res.status(error.reponse.status).json(error.reponse.data);
     }
   }
 
@@ -48,7 +48,7 @@ class UserController {
       redis.del("users");
       res.status(user.status).json(user.data);
     } catch (error) {
-      res.status(500).json(error);
+      res.status(error.reponse.status).json(error.reponse.data);
     }
   }
 }
