@@ -68,6 +68,7 @@ class AppController {
         req.body
       );
       redis.del("products");
+      redis.del(`product:${req.params.id}`);
       res.status(product.status).json(product.data);
     } catch (error) {
       res.status(error.reponse.status).json(error.reponse.data);
@@ -80,6 +81,7 @@ class AppController {
         `${baseUrlApp}/product/${req.params.id}`
       );
       redis.del("products");
+      redis.del(`product:${req.params.id}`);
       res.status(product.status).json(product.data);
     } catch (error) {
       res.status(error.reponse.status).json(error.reponse.data);
@@ -103,25 +105,19 @@ class AppController {
 
   static async getProductsByCategory(req, res) {
     try {
-      const findRedis = await redis.get(`product:${req.query.name}`);
-      if (findRedis) {
-        res.status(200).json(JSON.parse(findRedis));
-      } else {
-        const products = await axios.get(
-          `${baseUrlApp}/category/product?name=${req.query.name}`
+      const products = await axios.get(
+        `${baseUrlApp}/category/product?name=${req.query.name}`
+      );
+      const users = await axios.get(`${baseUrlUsers}/user`);
+      products.data.forEach((product) => {
+        users.data.forEach((user) =>
+          product.userMongoId === user._id
+            ? (product.User = { username: user.username })
+            : ""
         );
-        const users = await axios.get(`${baseUrlUsers}/user`);
-        products.data.forEach((product) => {
-          users.data.forEach((user) =>
-            product.userMongoId === user._id
-              ? (product.User = { username: user.username })
-              : ""
-          );
-          delete product.userMongoId;
-        });
-        redis.set(`product:${req.query.name}`, JSON.stringify(products.data));
-        res.status(products.status).json(products.data);
-      }
+        delete product.userMongoId;
+      });
+      res.status(products.status).json(products.data);
     } catch (error) {
       res.status(error.reponse.status).json(error.reponse.data);
     }

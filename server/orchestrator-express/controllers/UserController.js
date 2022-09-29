@@ -46,6 +46,7 @@ class UserController {
     try {
       const user = await axios.delete(`${baseUrlUsers}/user/${req.params.id}`);
       redis.del("users");
+      redis.del(`user:${req.params.id}`);
       res.status(user.status).json(user.data);
     } catch (error) {
       res.status(error.reponse.status).json(error.reponse.data);
