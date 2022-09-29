@@ -13,7 +13,7 @@ class UserController {
         res.status(users.status).json(users.data);
       }
     } catch (error) {
-      res.status(error.reponse.status).json(error.reponse.data);
+      res.status(error.response.status).json(error.response.data);
     }
   }
 
@@ -28,7 +28,7 @@ class UserController {
         res.status(user.status).json(user.data);
       }
     } catch (error) {
-      res.status(error.reponse.status).json(error.reponse.data);
+      res.status(error.response.status).json(error.response.data);
     }
   }
 
@@ -38,7 +38,7 @@ class UserController {
       redis.del("users");
       res.status(user.status).json(user.data);
     } catch (error) {
-      res.status(error.reponse.status).json(error.reponse.data);
+      res.status(error.response.status).json(error.response.data);
     }
   }
 
@@ -49,7 +49,7 @@ class UserController {
       redis.del(`user:${req.params.id}`);
       res.status(user.status).json(user.data);
     } catch (error) {
-      res.status(error.reponse.status).json(error.reponse.data);
+      res.status(error.response.status).json(error.response.data);
     }
   }
 }

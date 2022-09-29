@@ -22,7 +22,7 @@ class AppController {
         res.status(products.status).json(products.data);
       }
     } catch (error) {
-      res.status(error.reponse.status).json(error.reponse.data);
+      res.status(error.response.status).json(error.response.data);
     }
   }
 
@@ -47,7 +47,7 @@ class AppController {
         res.status(product.status).json(product.data);
       }
     } catch (error) {
-      res.status(error.reponse.status).json(error.reponse.data);
+      res.status(error.response.status).json(error.response.data);
     }
   }
 
@@ -57,7 +57,7 @@ class AppController {
       redis.del("products");
       res.status(product.status).json(product.data);
     } catch (error) {
-      res.status(error.reponse.status).json(error.reponse.data);
+      res.status(error.response.status).json(error.response.data);
     }
   }
 
@@ -71,7 +71,7 @@ class AppController {
       redis.del(`product:${req.params.id}`);
       res.status(product.status).json(product.data);
     } catch (error) {
-      res.status(error.reponse.status).json(error.reponse.data);
+      res.status(error.response.status).json(error.response.data);
     }
   }
 
@@ -84,7 +84,7 @@ class AppController {
       redis.del(`product:${req.params.id}`);
       res.status(product.status).json(product.data);
     } catch (error) {
-      res.status(error.reponse.status).json(error.reponse.data);
+      res.status(error.response.status).json(error.response.data);
     }
   }
 
@@ -99,7 +99,7 @@ class AppController {
         res.status(categories.status).json(categories.data);
       }
     } catch (error) {
-      res.status(error.reponse.status).json(error.reponse.data);
+      res.status(error.response.status).json(error.response.data);
     }
   }
 
@@ -119,7 +119,7 @@ class AppController {
       });
       res.status(products.status).json(products.data);
     } catch (error) {
-      res.status(error.reponse.status).json(error.reponse.data);
+      res.status(error.response.status).json(error.response.data);
     }
   }
 }
