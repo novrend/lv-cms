@@ -11,7 +11,6 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Product.hasMany(models.Image, { foreignKey: "productId" });
       Product.belongsTo(models.Category, { foreignKey: "categoryId" });
-      Product.belongsTo(models.User, { foreignKey: "authorId" });
     }
   }
   Product.init(
@@ -70,7 +69,7 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
       categoryId: DataTypes.INTEGER,
-      authorId: DataTypes.INTEGER,
+      userMongoId: DataTypes.STRING,
     },
     {
       sequelize,

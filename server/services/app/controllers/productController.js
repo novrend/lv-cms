@@ -1,11 +1,10 @@
-const { Product, Image, User, Category, sequelize } = require("../models");
+const { Product, Image, Category, sequelize } = require("../models");
 
 class productController {
   static async fetchProducts(req, res, next) {
     try {
       const products = await Product.findAll({
         include: [
-          { model: User, attributes: ["username"] },
           { model: Image },
           { model: Category },
         ],
@@ -24,7 +23,6 @@ class productController {
           id,
         },
         include: [
-          { model: User, attributes: ["username"] },
           { model: Image },
           { model: Category },
         ],
@@ -41,7 +39,7 @@ class productController {
   static async addProduct(req, res, next) {
     const t = await sequelize.transaction();
     try {
-      const { name, description, price, mainImg, image1, image2, categoryId } =
+      const { name, description, price, mainImg, image1, image2, categoryId, userMongoId } =
         req.body;
       if (!image1) throw { code: 400, msg: "Image 1 is required" };
       if (!image2) throw { code: 400, msg: "Image 2 is required" };
@@ -56,7 +54,7 @@ class productController {
           price,
           mainImg,
           categoryId,
-          authorId: req.user.id,
+          userMongoId,
         },
         { transaction: t }
       );

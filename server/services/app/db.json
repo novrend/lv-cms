@@ -1,24 +1,4 @@
 {
-  "Users": [
-    {
-      "id": "1",
-      "username": "admin",
-      "email": "admin@mail.com",
-      "password": "admin",
-      "role": "admin",
-      "phoneNumber": "08111111",
-      "address": "Pondok Indah"
-    },
-    {
-      "id": "2",
-      "username": "customer",
-      "email": "customer@mail.com",
-      "password": "customer",
-      "role": "customer",
-      "phoneNumber": "0822222",
-      "address": "Cipete"
-    }
-  ],
   "Categories": [
     {
       "id": "1",
@@ -70,7 +50,7 @@
       "price": "3850",
       "mainImg": "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-lock-it-tote-lv-aerogram-bags--M59158_PM1_Worn%20view.png?wid=2048&hei=2048",
       "categoryId": "8",
-      "authorId": "1"
+      "userMongoId": "6334088676fc9b2a8e60d083"
     },
     {
       "id": "2",
@@ -80,7 +60,7 @@
       "price": "2590",
       "mainImg": "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-city-keepall-lv-aerogram-bags--M59328_PM1_Worn%20view.png?wid=2048&hei=2048",
       "categoryId": "8",
-      "authorId": "1"
+      "userMongoId": "6334088676fc9b2a8e60d083"
     },
     {
       "id": "3",
@@ -90,7 +70,7 @@
       "price": "3400",
       "mainImg": "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-briefcase-lv-aerogram-bags--M59159_PM1_Worn%20view.png?wid=2048&hei=2048",
       "categoryId": "8",
-      "authorId": "1"
+      "userMongoId": "6334088676fc9b2a8e60d083"
     },
     {
       "id": "4",
@@ -100,7 +80,7 @@
       "price": "590",
       "mainImg": "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-lv-initiales-40mm-reversible-monogram-eclipse-canvas-belts--M9043U_PM1_Worn%20view.png?wid=2048&hei=2048",
       "categoryId": "9",
-      "authorId": "1"
+      "userMongoId": "6334088676fc9b2a8e60d083"
     },
     {
       "id": "5",
@@ -110,7 +90,7 @@
       "price": "635",
       "mainImg": "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-monogram-essential-cap-s00-hats-and-gloves--M76584_PM1_Worn%20view.png?wid=2048&hei=2048",
       "categoryId": "9",
-      "authorId": "1"
+      "userMongoId": "6334088676fc9b2a8e60d083"
     },
     {
       "id": "6",
@@ -120,7 +100,7 @@
       "price": "610",
       "mainImg": "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-lv-air-square-sunglasses-s00-new-this-season--Z1706U_PM1_Worn%20view.png?wid=2048&hei=2048",
       "categoryId": "9",
-      "authorId": "1"
+      "userMongoId": "6334088676fc9b2a8e60d083"
     },
     {
       "id": "7",
@@ -130,7 +110,7 @@
       "price": "1180",
       "mainImg": "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-archlight-slingback-pump-shoes--AN5E1ISL02_PM1_Worn%20view.png?wid=2048&hei=2048",
       "categoryId": "10",
-      "authorId": "1"
+      "userMongoId": "6334088676fc9b2a8e60d083"
     },
     {
       "id": "8",
@@ -140,7 +120,7 @@
       "price": "1310",
       "mainImg": "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-academy-loafer-shoes--AIAL4BPC02_PM1_Worn%20view.png?wid=2048&hei=2048",
       "categoryId": "10",
-      "authorId": "1"
+      "userMongoId": "6334088676fc9b2a8e60d083"
     },
     {
       "id": "9",
@@ -150,7 +130,7 @@
       "price": "915",
       "mainImg": "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-revival-flat-mule-shoes--ANVH3ALKRC_PM1_Worn%20view.png?wid=2048&hei=2048",
       "categoryId": "10",
-      "authorId": "1"
+      "userMongoId": "6334088676fc9b2a8e60d083"
     },
     {
       "id": "10",
@@ -160,7 +140,7 @@
       "price": "4650",
       "mainImg": "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-lv-diamonds-pav%C3%A9-v-ring-platinum-jewelry--Q9Y47F_PM1_Worn%20view.png?wid=2048&hei=2048",
       "categoryId": "6",
-      "authorId": "1"
+      "userMongoId": "6334088676fc9b2a8e60d083"
     },
     {
       "id": "11",
@@ -170,7 +150,7 @@
       "price": "1600",
       "mainImg": "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-lv-diamonds-2-5mm-wedding-band-platinum-jewelry--Q9Y49F_PM1_Worn%20view.png?wid=2048&hei=2048",
       "categoryId": "6",
-      "authorId": "1"
+      "userMongoId": "6334088676fc9b2a8e60d083"
     },
     {
       "id": "12",
@@ -180,7 +160,7 @@
       "price": "3250",
       "mainImg": "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-lv-diamonds-pendant-lv-monogram-star-cut-jewelry--Q03018_PM1_Worn%20view.png?wid=2048&hei=2048",
       "categoryId": "6",
-      "authorId": "1"
+      "userMongoId": "6334088676fc9b2a8e60d083"
     },
     {
       "id": "13",
@@ -190,7 +170,7 @@
       "price": "3955",
       "mainImg": "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-tambour-monogram-watches-and-jewelry--QBB107_PM2_Front%20view.png?wid=2048&hei=2048",
       "categoryId": "5",
-      "authorId": "1"
+      "userMongoId": "6334088676fc9b2a8e60d083"
     },
     {
       "id": "14",
@@ -200,7 +180,7 @@
       "price": "6770",
       "mainImg": "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-tambour-moon-dual-time-35mm-watches--QBB182_PM2_Front%20view.png?wid=2048&hei=2048",
       "categoryId": "5",
-      "authorId": "1"
+      "userMongoId": "6334088676fc9b2a8e60d083"
     },
     {
       "id": "15",
@@ -210,7 +190,7 @@
       "price": "5755",
       "mainImg": "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-tambour-monogram-28mm-watches--QBB165_PM2_Front%20view.png?wid=2048&hei=2048",
       "categoryId": "5",
-      "authorId": "1"
+      "userMongoId": "6334088676fc9b2a8e60d083"
     },
     {
       "id": "16",
@@ -220,7 +200,7 @@
       "price": "365",
       "mainImg": "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-nuit-de-feu-fragrances--LP0167_PM2_Front%20view.png?wid=2048&hei=2048",
       "categoryId": "4",
-      "authorId": "1"
+      "userMongoId": "6334088676fc9b2a8e60d083"
     },
     {
       "id": "17",
@@ -230,7 +210,7 @@
       "price": "280",
       "mainImg": "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-l-immensit%C3%A9-fragrances--LP0052_PM2_Front%20view.png?wid=2048&hei=2048",
       "categoryId": "4",
-      "authorId": "1"
+      "userMongoId": "6334088676fc9b2a8e60d083"
     },
     {
       "id": "18",
@@ -240,7 +220,7 @@
       "price": "480",
       "mainImg": "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-slender-wallet-monogram-eclipse-canvas-small-leather-goods--M80906_PM2_Front%20view.png?wid=2048&hei=2048",
       "categoryId": "3",
-      "authorId": "1"
+      "userMongoId": "6334088676fc9b2a8e60d083"
     },
     {
       "id": "19",
@@ -250,7 +230,7 @@
       "price": "475",
       "mainImg": "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-petit-damier-scarf-nm-s00-scarves--M70030_PM1_Worn%20view.png?wid=2048&hei=2048",
       "categoryId": "3",
-      "authorId": "1"
+      "userMongoId": "6334088676fc9b2a8e60d083"
     },
     {
       "id": "20",
@@ -260,7 +240,7 @@
       "price": "3200",
       "mainImg": "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-jet-pocket-blouson-ready-to-wear--HOFB1WMV6910_PM1_Worn%20view.png?wid=2048&hei=2048",
       "categoryId": "7",
-      "authorId": "1"
+      "userMongoId": "6334088676fc9b2a8e60d083"
     },
     {
       "id": "21",
@@ -270,7 +250,7 @@
       "price": "820",
       "mainImg": "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-regular-dna-collar-shirt-ready-to-wear--HOFS6WMU9704_PM1_Worn%20view.png?wid=2048&hei=2048",
       "categoryId": "7",
-      "authorId": "1"
+      "userMongoId": "6334088676fc9b2a8e60d083"
     },
     {
       "id": "22",
@@ -280,7 +260,7 @@
       "price": "2200",
       "mainImg": "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-d-ring-turtleneck-sweater-ready-to-wear--FNKL92TL8002_PM1_Worn%20view.png?wid=2048&hei=2048",
       "categoryId": "2",
-      "authorId": "1"
+      "userMongoId": "6334088676fc9b2a8e60d083"
     },
     {
       "id": "23",
@@ -290,7 +270,7 @@
       "price": "5400",
       "mainImg": "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-signature-double-face-short-wrap-coat-ready-to-wear--FNCO19QWE125_PM1_Worn%20view.png?wid=2048&hei=2048",
       "categoryId": "2",
-      "authorId": "1"
+      "userMongoId": "6334088676fc9b2a8e60d083"
     },
     {
       "id": "24",
@@ -300,7 +280,7 @@
       "price": "4000",
       "mainImg": "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-xl-shoulder-oversized-jacket-ready-to-wear--HNJ65WOY9002_PM1_Worn%20view.png?wid=2048&hei=2048",
       "categoryId": "1",
-      "authorId": "1"
+      "userMongoId": "6334088676fc9b2a8e60d083"
     },
     {
       "id": "25",
@@ -310,7 +290,7 @@
       "price": "2630",
       "mainImg": "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-workwear-chore-coat-ready-to-wear--HNB72WND9152_PM1_Worn%20view.png?wid=2048&hei=2048",
       "categoryId": "1",
-      "authorId": "1"
+      "userMongoId": "6334088676fc9b2a8e60d083"
     }
   ],
   "Images": [

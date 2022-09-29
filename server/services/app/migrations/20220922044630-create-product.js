@@ -37,14 +37,8 @@ module.exports = {
         onUpdate: "cascade",
         onDelete: "cascade",
       },
-      authorId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: "Users",
-          key: "id",
-        },
-        onUpdate: "cascade",
-        onDelete: "cascade",
+      userMongoId: {
+        type: Sequelize.STRING,
       },
       createdAt: {
         allowNull: false,
