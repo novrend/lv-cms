@@ -27,16 +27,14 @@ const typeDefs = gql`
   }
 
   input ProductContent {
-    id: ID
-    name: String
-    slug: String
-    description: String
-    price: Int
-    mainImg: String
-    categoryId: Int
-    userMongoId: String
-    image1: String
-    image2: String
+    name: String!
+    description: String!
+    price: Int!
+    mainImg: String!
+    categoryId: Int!
+    userMongoId: String!
+    image1: String!
+    image2: String!
   }
 
   type Query {

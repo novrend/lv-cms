@@ -13,11 +13,11 @@ const typeDefs = gql`
   }
 
   input UserContent {
-    username: String
-    email: String
-    password: String
-    phoneNumber: String
-    address: String
+    username: String!
+    email: String!
+    password: String!
+    phoneNumber: String!
+    address: String!
   }
 
   type Query {
