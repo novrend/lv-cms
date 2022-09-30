@@ -1,9 +1,13 @@
-import { Fragment, useEffect, useState } from "react";
-import { FlatList, Text, View } from "react-native";
+import { useQuery } from "@apollo/client";
+import { Fragment } from "react";
+import { ActivityIndicator, FlatList, Text, View } from "react-native";
 import Navbar from "../components/Navbar";
-import { BASE_URL } from "../config";
+import { GET_CATEGORIES } from "../config/queries";
 export default function Home({ navigation }) {
-  const [categories, setCategories] = useState([]);
+  const { loading, error, data } = useQuery(GET_CATEGORIES);
+  if (loading)
+    return <ActivityIndicator style={{ height: "75%" }} size="large" />;
+  if (error) return <Text>Error! {error.message}</Text>;
   const NavComponents = ({ item }) => {
     return (
       <Fragment>
@@ -27,16 +31,6 @@ export default function Home({ navigation }) {
       </Fragment>
     );
   };
-  useEffect(() => {
-    fetch(`${BASE_URL}/category`)
-      .then((resp) => {
-        if (resp?.error) throw resp.json();
-        return resp.json();
-      })
-      .then((resp) => {
-        setCategories(resp);
-      });
-  }, []);
   return (
     <Fragment>
       <Navbar buttonType={true} navigation={navigation} />
@@ -45,7 +39,7 @@ export default function Home({ navigation }) {
         <FlatList
           renderItem={NavComponents}
           keyExtractor={(item) => item.id}
-          data={categories}
+          data={data.getCategories}
         ></FlatList>
       </View>
     </Fragment>

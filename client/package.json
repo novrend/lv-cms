@@ -9,11 +9,13 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@apollo/client": "^3.6.10",
     "@expo/vector-icons": "^13.0.0",
     "@react-navigation/native": "^6.0.13",
     "@react-navigation/stack": "^6.3.1",
     "expo": "~46.0.13",
     "expo-status-bar": "~1.4.0",
+    "graphql": "^15.8.0",
     "react": "18.0.0",
     "react-native": "0.69.5",
     "react-native-slick": "^1.6.0"

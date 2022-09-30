@@ -1,9 +1,24 @@
-import { Text, Image, TouchableOpacity, FlatList, View } from "react-native";
-import { BASE_URL } from "../config";
-import { Fragment, useEffect, useState } from "react";
+import {
+  Text,
+  Image,
+  TouchableOpacity,
+  FlatList,
+  View,
+  ActivityIndicator,
+} from "react-native";
+import { Fragment } from "react";
+import { GET_PRODUCTS } from "../config/queries";
+import { useQuery } from "@apollo/client";
 export default function Card({ category, navigation }) {
-  const [products, setProducts] = useState([]);
-  const CardProduct = ({ item }) => { 
+  const { loading, error, data } = useQuery(GET_PRODUCTS, {
+    variables: {
+      name: category,
+    },
+  });
+  if (loading)
+    return <ActivityIndicator style={{ height: "75%" }} size="large" />;
+  if (error) return <Text>Error! {error.message}</Text>;
+  const CardProduct = ({ item }) => {
     return (
       <TouchableOpacity
         style={{ margin: 10 }}
@@ -34,23 +49,13 @@ export default function Card({ category, navigation }) {
       </TouchableOpacity>
     );
   };
-  useEffect(() => {
-    fetch(`${BASE_URL}/category/product?name=${category}`)
-      .then((resp) => {
-        if (resp?.error) throw resp.json();
-        return resp.json();
-      })
-      .then((resp) => {
-        setProducts(resp);
-      });
-  }, [category]);
   return (
     <Fragment>
       <View style={{ width: "100%", height: "100%", backgroundColor: "#FFFF" }}>
         <FlatList
           renderItem={CardProduct}
           keyExtractor={(item) => item.id}
-          data={products}
+          data={data.getProductsByCategory}
           numColumns={2}
           columnWrapperStyle={{ flexWrap: "wrap" }}
           style={{

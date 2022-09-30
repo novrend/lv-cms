@@ -1,5 +1,4 @@
-import { BASE_URL } from "../config";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment } from "react";
 import {
   TouchableOpacity,
   Image,
@@ -7,24 +6,24 @@ import {
   View,
   ScrollView,
   FlatList,
+  ActivityIndicator,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import Navbar from "../components/Navbar";
 import Slick from "react-native-slick";
 import Footer from "../components/Footer";
+import { useQuery } from "@apollo/client";
+import { GET_PRODUCT } from "../config/queries";
 
 export default function ProductDetail({ route, navigation }) {
-  const [product, setProduct] = useState({});
-  useEffect(() => {
-    fetch(`${BASE_URL}/product/${route.params.id}`)
-      .then((resp) => {
-        if (resp?.error) throw resp.json();
-        return resp.json();
-      })
-      .then((resp) => {
-        setProduct(resp);
-      });
-  }, []);
+  const { loading, error, data } = useQuery(GET_PRODUCT, {
+    variables: {
+      getProductId: route.params.id,
+    },
+  });
+  if (loading)
+    return <ActivityIndicator style={{ height: "75%" }} size="large" />;
+  if (error) return <Text>Error! {error.message}</Text>;
   const style = {
     dot: {
       backgroundColor: "#949494",
@@ -97,20 +96,20 @@ export default function ProductDetail({ route, navigation }) {
           <View>
             <Image
               source={{
-                uri: product.mainImg,
+                uri: data?.getProduct.mainImg,
               }}
               style={style.image}
             />
           </View>
           <View>
             <Image
-              source={{ uri: product?.Images?.[0]?.imgUrl }}
+              source={{ uri: data?.getProduct?.Images?.[0]?.imgUrl }}
               style={style.image}
             />
           </View>
           <View>
             <Image
-              source={{ uri: product?.Images?.[1]?.imgUrl }}
+              source={{ uri: data?.getProduct?.Images?.[1]?.imgUrl }}
               style={style.image}
             />
           </View>
@@ -129,14 +128,16 @@ export default function ProductDetail({ route, navigation }) {
           }}
         >
           <Text style={{ fontWeight: "300", fontSize: 20, marginBottom: 15 }}>
-            {product?.Category?.name}
+            {data?.getProduct?.Category?.name}
           </Text>
-          <Text style={{ fontSize: 30, marginBottom: 15 }}>{product.name}</Text>
+          <Text style={{ fontSize: 30, marginBottom: 15 }}>
+            {data?.getProduct.name}
+          </Text>
           <Text style={{ fontSize: 20, marginBottom: 15 }}>
             {new Intl.NumberFormat("en-US", {
               style: "currency",
               currency: "USD",
-            }).format(product.price)}
+            }).format(data?.getProduct.price)}
           </Text>
           <TouchableOpacity
             style={{
@@ -164,10 +165,10 @@ export default function ProductDetail({ route, navigation }) {
               marginTop: 15,
             }}
           >
-            {product.description}
+            {data?.getProduct.description}
           </Text>
           <Text style={{ fontWeight: "300", fontSize: 20, marginBottom: 15 }}>
-            Created by: {product?.User?.username}
+            Created by: {data?.getProduct?.User?.username}
           </Text>
         </View>
         <Footer />
