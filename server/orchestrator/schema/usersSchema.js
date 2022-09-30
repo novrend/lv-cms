@@ -16,19 +16,18 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
-    role: String
     phoneNumber: String
     address: String
   }
 
   type Query {
     getUsers: [User]
-    findUser: User
+    findUser(id: ID!): User
   }
 
   type Mutation {
     newUser(content: UserContent): User
-    deleteUser(id: ID): User
+    deleteUser(id: ID!): User
   }
 `;
 
@@ -38,7 +37,7 @@ const resolvers = {
       try {
         const findRedis = await redis.get("users");
         if (findRedis) {
-          return findRedis;
+          return JSON.parse(findRedis);
         } else {
           const users = await axios.get(`${baseUrlUsers}/user`);
           redis.set("users", JSON.stringify(users.data));
@@ -49,13 +48,17 @@ const resolvers = {
       }
     },
     findUser: async (_, args) => {
-      const findRedis = await redis.get(`user:${args.id}`);
-      if (findRedis) {
-        return JSON.parse(findRedis);
-      } else {
-        const user = await axios.get(`${baseUrlUsers}/user/${args.id}`);
-        redis.set(`user:${args.id}`, JSON.stringify(user.data));
-        return user.data;
+      try {
+        const findRedis = await redis.get(`user:${args.id}`);
+        if (findRedis) {
+          return JSON.parse(findRedis);
+        } else {
+          const user = await axios.get(`${baseUrlUsers}/user/${args.id}`);
+          redis.set(`user:${args.id}`, JSON.stringify(user.data));
+          return user.data;
+        }
+      } catch (error) {
+        console.log(error);
       }
     },
   },

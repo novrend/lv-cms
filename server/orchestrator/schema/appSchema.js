@@ -21,10 +21,6 @@ const typeDefs = gql`
     imgUrl: String
   }
 
-  type User {
-    Username: String
-  }
-
   type Category {
     id: ID
     name: String
@@ -45,15 +41,15 @@ const typeDefs = gql`
 
   type Query {
     getProducts: [Product]
-    getProduct(id: ID): Product
+    getProduct(id: ID!): Product
     getCategories: [Category]
-    getProductsByCategory(name: String): [Product]
+    getProductsByCategory(name: String!): [Product]
   }
 
   type Mutation {
     addProduct(content: ProductContent): Product
-    editProduct(content: ProductContent, id: ID): Product
-    deleteProduct(id: ID): Product
+    editProduct(content: ProductContent, id: ID!): Product
+    deleteProduct(id: ID!): Product
   }
 `;
 
