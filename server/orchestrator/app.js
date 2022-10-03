@@ -5,6 +5,8 @@ const usersSchema = require("./schema/usersSchema");
 const server = new ApolloServer({
   typeDefs: [appSchema.typeDefs, usersSchema.typeDefs],
   resolvers: [appSchema.resolvers, usersSchema.resolvers],
+  introspection: true,
+  playground: true,
 });
 
 server.listen().then(({ url }) => {
